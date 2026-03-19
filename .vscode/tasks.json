@@ -15,7 +15,20 @@
             ],
             "problemMatcher": "$msCompile"
         },
-
+       
+        {
+            "label": "build-sandbox-Sandbox-Till",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/sandbox/Sandbox/Till/Till.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        
         {
             "label": "build-csharp-prep-Prep1",
             "command": "dotnet",
