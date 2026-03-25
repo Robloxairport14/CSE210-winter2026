@@ -1,4 +1,5 @@
-class Entry
+using System.IO;
+public class Entry
 {
     public string _text;
     public string _data;
