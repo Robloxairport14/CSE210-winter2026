@@ -29,8 +29,11 @@ class Program
 
             else if (activiNumber == 2)
             {
-                Console.WriteLine($"The goals are:\n{all}");
-
+                Console.WriteLine($"The goals are:");
+                for (int i = 0; i < all.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {all[i]}");
+                }
             }
 
             else if (activiNumber == 3)
@@ -48,6 +51,14 @@ class Program
 
             else if (activiNumber == 5)
             {
+                using (StreamWriter output = new StreamWriter("goals.txt"))
+                {
+                    for (int i = 0; i < all.Count; i++)
+                    {
+                        int number = i + 1; // makes it 1–5 instead of 0–4
+                        output.WriteLine($"{number}. {all[i].ToString()}");
+                    }
+                }
                 // Console.WriteLine($"The goals are:\n{List}\nWhich goal did you accomplish?");
                 int done = Convert.ToInt32(Console.ReadLine());
                 // if (done == )
