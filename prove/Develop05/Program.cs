@@ -1,62 +1,85 @@
 using System;
-using System.Drawing;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine($"You have {Point} points.");
-        Console.WriteLine("");
-        Console.WriteLine("Menu Options:");
-        Console.WriteLine("1:Creating New Goal\n2:List Goals\n3:Save Goals\n4:Load Goals\n5:Record Event\n6:Quit");
-        int activiNumber = Convert.ToInt32(Console.ReadLine());
-        
-        if (activiNumber == 1)
+        int point =0;
+        List<Goal> all= new List<Goal>();
+        while (true)
         {
-            Goal goal = new Goal();
-            goal.Start();
-            return;
-        }
-        
-        else if (activiNumber == 2)
-        {
-            Console.WriteLine($"The goals are:\n{List}");
-            return;
-        }
+            Console.WriteLine($"You have {point} points.");
+            Console.WriteLine("");
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("1:Creating New Goal\n2:List Goals\n3:Save Goals\n4:Load Goals\n5:Record Event\n6:Quit");
+            int activiNumber = Convert.ToInt32(Console.ReadLine());
 
-        else if (activiNumber == 3)
-        {
-            Console.WriteLine("What is the file name for the goal file?");
-            string file = Console.ReadLine();
-        }
-
-        else if (activiNumber == 4)
-        {
-            Console.WriteLine("What is the file name for the goal file?");
-            string Load = Console.ReadLine();
-        }
-
-        else if (activiNumber == 5)
-        {
-            Console.WriteLine($"The goals are:\n{List}\nWhich goal did you accomplish?");
-            int done = Convert.ToInt32(Console.ReadLine());
-            if (done == )
+            if (activiNumber == 1)
             {
-                
+                Goal goal = Goal.Start();
+                if (goal == null)
+                {
+                    Console.WriteLine("Fail to create!");
+                }
+                else
+                {
+                    all.Add(goal);
+                }
             }
-            return;
-        }
 
-        else if (activiNumber == 6)
-        {
-            Console.WriteLine("bye bye");
-            
-        }
+            else if (activiNumber == 2)
+            {
+                Console.WriteLine($"The goals are:\n{all}");
 
-        else
-        {
-            Console.WriteLine("I did not gave you this option, shutting down.");
-            
+            }
+
+            else if (activiNumber == 3)
+            {
+                Console.WriteLine("What is the file name for the goal file?");
+                string file = Console.ReadLine();
+                File.WriteAllText(file, "");
+            }
+
+            else if (activiNumber == 4)
+            {
+                Console.WriteLine("What is the file name for the goal file?");
+                string Load = Console.ReadLine();
+            }
+
+            else if (activiNumber == 5)
+            {
+                // Console.WriteLine($"The goals are:\n{List}\nWhich goal did you accomplish?");
+                int done = Convert.ToInt32(Console.ReadLine());
+                // if (done == )
+                {
+
+                }
+                object g="";
+                if(g.GetType().Name=="Simple")
+                {
+                    // simple goal diplay method
+                }
+                else if (g.GetType().Name=="Eternal")
+                {
+                    //Eternal goal diplay method
+                }
+                else if (g.GetType().Name=="Checklist")
+                {
+                    //Checklist goal diplay method
+                }
+            }
+
+            else if (activiNumber == 6)
+            {
+                Console.WriteLine("bye bye");
+                break;
+            }
+
+            else
+            {
+                Console.WriteLine("I did not gave you this option, shutting down.");
+                break;
+            }
         }
         
     }
