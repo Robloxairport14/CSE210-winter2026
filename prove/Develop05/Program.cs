@@ -51,6 +51,8 @@ class Program
 
             else if (activiNumber == 5)
             {
+                Console.WriteLine("What is the file name for the goal file?");
+                string finish = Console.ReadLine();
                 using (StreamWriter output = new StreamWriter("goals.txt"))
                 {
                     for (int i = 0; i < all.Count; i++)
